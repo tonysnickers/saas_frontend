@@ -1,13 +1,15 @@
-import { Box } from "@mui/material";
+import React, { useState } from "react";
 import Form from "./Form";
-import { useState } from "react";
+import { Box } from "@mui/material";
 
-export const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
 
-  const handleSubmit = () => {
-    console.log("submit");
+  const handleSubmit = async () => {
+    console.log("regitred");
   };
   return (
     <Box>
@@ -21,3 +23,5 @@ export const Login = () => {
     </Box>
   );
 };
+
+export default Register;
