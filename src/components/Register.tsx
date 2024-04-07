@@ -5,8 +5,7 @@ import { Box } from "@mui/material";
 const Register = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
+  const [userName, setUsername] = useState<string>("");
 
   const handleSubmit = async () => {
     console.log("regitred");
@@ -19,6 +18,8 @@ const Register = () => {
         password={password}
         setPassword={setPassword}
         handleSubmit={handleSubmit}
+        userName={userName}
+        setUsername={setUsername}
       />
     </Box>
   );

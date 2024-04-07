@@ -9,6 +9,8 @@ interface LoginProps {
   setEmail: React.Dispatch<React.SetStateAction<string>>;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   handleSubmit: () => void;
+  userName?: string;
+  setUsername?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Form = ({
@@ -17,9 +19,12 @@ const Form = ({
   setEmail,
   setPassword,
   handleSubmit,
+  userName,
+  setUsername,
 }: LoginProps) => {
   const [formTitle, setFormTitle] = useState<string>("");
   const url = window.location.pathname;
+  console.log(url);
 
   useEffect(() => {
     switch (url) {
@@ -58,8 +63,21 @@ const Form = ({
         <Typography variant="h5" sx={{ textAlign: "center" }}>
           {formTitle}
         </Typography>
+        {formTitle === FORMTITLE.Register && (
+          <TextField
+            error
+            label="email"
+            variant="outlined"
+            value={userName}
+            sx={{
+              my: 3,
+              borderRadius: 3,
+            }}
+            inputProps={{ sx: { color: "#1664C0" } }}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        )}
         <TextField
-          error
           label="email"
           variant="outlined"
           value={email}
@@ -71,7 +89,6 @@ const Form = ({
           onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
-          error
           id="outlined-error"
           label="password"
           value={password}
